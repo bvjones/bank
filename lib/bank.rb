@@ -1,9 +1,10 @@
 class Bank
-  attr_reader :balance, :transaction_log
+  attr_reader :balance, :transaction_history
   DEFAULT_BALANCE = 0
 
   def initialize
     @balance = DEFAULT_BALANCE
+    @transaction_history = TransactionHistory.new
   end
 
   def deposit(money)

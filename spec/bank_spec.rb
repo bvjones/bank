@@ -9,7 +9,7 @@ describe Bank do
       expect(subject.balance).to be(0)
     end
     it 'with an instance of transaction_history' do
-      expect(subject).to respond_to(:transaction_log)
+      expect(subject).to respond_to(:transaction_history)
     end
   end
   describe '#deposit' do
