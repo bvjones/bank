@@ -1,8 +1,8 @@
 class TransactionHistory
-  attr_reader :transaction_log
+  attr_reader :transactions
 
   def initialize
-    @transaction_log = []
+    @transactions = []
   end
 
 end

@@ -5,7 +5,7 @@ describe TransactionHistory do
 
   describe 'initialised' do
     it 'with a transaction_register' do
-      expect(subject.transaction_log).to eq([])
+      expect(subject.transactions).to eq([])
     end
   end
 

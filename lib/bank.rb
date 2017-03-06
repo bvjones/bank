@@ -1,3 +1,5 @@
+require_relative 'transaction_history'
+
 class Bank
   attr_reader :balance, :transaction_history
   DEFAULT_BALANCE = 0
@@ -10,6 +12,7 @@ class Bank
   def deposit(money)
     raise "You cannot deposit £#{money}, as it's £0 or less" if money <= 0
     @balance += money
+    @transaction_history.transactions << { type: :debit, value: money, date: Time.new.strftime("%d/%m/%Y") }
   end
 
   def withdraw(money)

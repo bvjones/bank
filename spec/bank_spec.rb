@@ -19,6 +19,10 @@ describe Bank do
     it 'does not allow depositing values of 0 or less' do
       expect{ subject.deposit(0) }.to raise_error("You cannot deposit £0, as it's £0 or less")
     end
+    it 'pushes the transaction details into transaction_history' do
+      subject.deposit(100)
+      expect(subject.transaction_history.transactions).to include({:type=>:debit, :value=>100, :date=>"06/03/2017"})
+    end
   end
   describe '#withdraw' do
     it 'decreases balance by withdrawn amount' do
