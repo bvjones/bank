@@ -1,11 +1,15 @@
 require 'bank'
+require 'transaction_history'
 
 describe Bank do
   subject(:bank) { described_class.new }
 
   describe 'initialised' do
-    it  'with the balance of 0' do
+    it 'with the balance of 0' do
       expect(subject.balance).to be(0)
+    end
+    it 'with an instance of transaction_history' do
+      expect(subject).to respond_to(:transaction_log)
     end
   end
   describe '#deposit' do

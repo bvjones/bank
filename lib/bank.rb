@@ -1,5 +1,5 @@
 class Bank
-  attr_reader :balance
+  attr_reader :balance, :transaction_log
   DEFAULT_BALANCE = 0
 
   def initialize

@@ -1,7 +1,7 @@
 require 'transaction_history'
 
 describe TransactionHistory do
-  subject(:transactionHistory) { described_class.new }
+  subject(:transaction_history) { described_class.new }
 
   describe 'initialised' do
     it 'with a transaction_register' do
