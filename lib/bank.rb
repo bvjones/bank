@@ -7,11 +7,12 @@ class Bank
   end
 
   def deposit(money)
-    raise "You cannot deposit #{money}, as it's 0 or less" if money <= 0
+    raise "You cannot deposit £#{money}, as it's £0 or less" if money <= 0
     @balance += money
   end
 
   def withdraw(money)
+    raise "You cannot withdraw £#{money}, as your balance will be less than £0" if (@balance - money) < 0
     @balance -= money
   end
 
