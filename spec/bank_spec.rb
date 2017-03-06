@@ -21,7 +21,7 @@ describe Bank do
     end
     it 'pushes the transaction details into transaction_history' do
       subject.deposit(100)
-      expect(subject.transaction_history.transactions).to include({:type=>:debit, :value=>100, :date=>"06/03/2017"})
+      expect(subject.transaction_history.transactions).to include({:type=>:debit, :value=>100, :date=>"#{ Time.new.strftime("%d/%m/%Y")}"})
     end
   end
   describe '#withdraw' do
@@ -32,6 +32,11 @@ describe Bank do
     it 'does not allow withdrawing values if balance equals less than 0' do
       balance = 0
       expect{ subject.withdraw(10) }.to raise_error("You cannot withdraw £10, as your balance will be less than £0")
+    end
+    it 'pushes transaction details into transaction_history' do
+      subject.deposit(100)
+      subject.withdraw(100)
+      expect(subject.transaction_history.transactions).to include({:type=>:credit, :value=>100, :date=>"#{ Time.new.strftime("%d/%m/%Y")}"})
     end
   end
 end

@@ -18,5 +18,6 @@ class Bank
   def withdraw(money)
     raise "You cannot withdraw £#{money}, as your balance will be less than £0" if (@balance - money) < 0
     @balance -= money
+    @transaction_history.transactions << { type: :credit, value: money, date: Time.new.strftime("%d/%m/%Y") }
   end
 end
