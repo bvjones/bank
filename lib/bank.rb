@@ -12,12 +12,12 @@ class Bank
   def deposit(money)
     raise "You cannot deposit £#{money}, as it's £0 or less" if money <= 0
     @balance += money
-    @transaction_history.transactions << { type: :debit, value: money, date: Time.new.strftime("%d/%m/%Y") }
+    @transaction_history.transactions << { date: Time.new.strftime("%d/%m/%Y"), type: :debit, value: money, balance: @balance  }
   end
 
   def withdraw(money)
     raise "You cannot withdraw £#{money}, as your balance will be less than £0" if (@balance - money) < 0
     @balance -= money
-    @transaction_history.transactions << { type: :credit, value: money, date: Time.new.strftime("%d/%m/%Y") }
+    @transaction_history.transactions << { date: Time.new.strftime("%d/%m/%Y"), type: :credit, value: money, balance: @balance }
   end
 end

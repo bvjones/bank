@@ -9,4 +9,10 @@ describe TransactionHistory do
     end
   end
 
+  describe '#display' do
+    it 'will output all transactions in the transactions array' do
+      
+    end
+  end
+
 end

@@ -4,5 +4,4 @@ class TransactionHistory
   def initialize
     @transactions = []
   end
-
 end

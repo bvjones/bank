@@ -21,7 +21,7 @@ describe Bank do
     end
     it 'pushes the transaction details into transaction_history' do
       subject.deposit(100)
-      expect(subject.transaction_history.transactions).to include({:type=>:debit, :value=>100, :date=>"#{ Time.new.strftime("%d/%m/%Y")}"})
+      expect(subject.transaction_history.transactions).to include({ :date=> "#{Time.new.strftime("%d/%m/%Y")}", :type=>:debit, :value=>100, :balance=>100 })
     end
   end
   describe '#withdraw' do
@@ -36,7 +36,7 @@ describe Bank do
     it 'pushes transaction details into transaction_history' do
       subject.deposit(100)
       subject.withdraw(100)
-      expect(subject.transaction_history.transactions).to include({:type=>:credit, :value=>100, :date=>"#{ Time.new.strftime("%d/%m/%Y")}"})
+      expect(subject.transaction_history.transactions).to include({ :date=> "#{Time.new.strftime("%d/%m/%Y")}", :type=>:credit, :value=>100, :balance=>0 })
     end
   end
 end
