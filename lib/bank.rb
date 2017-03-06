@@ -15,5 +15,4 @@ class Bank
     raise "You cannot withdraw £#{money}, as your balance will be less than £0" if (@balance - money) < 0
     @balance -= money
   end
-
 end
