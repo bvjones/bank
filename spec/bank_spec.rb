@@ -16,4 +16,9 @@ describe Bank do
       expect{ subject.deposit(0) }.to raise_error("You cannot deposit #{0}, as it's 0 or less")
     end
   end
+  describe '#withdraw' do
+    it 'decreases balance by withdrawn amount' do
+      expect{ subject.withdraw(100) }.to change{ subject.balance }.by(-100)
+    end
+  end
 end
