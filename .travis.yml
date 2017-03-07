@@ -1,0 +1,6 @@
+script: bundle exec rspec spec
+rvm:
+- 2.4.0
+
+[12:55]
+.travis.yml
