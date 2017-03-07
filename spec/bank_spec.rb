@@ -21,7 +21,7 @@ describe Bank do
     end
     it 'pushes the transaction instance into transaction_history' do
       subject.deposit(100)
-      expect(subject.transaction_history.transactions[0]).to be_an_instance_of(Transaction)
+      expect(subject.transaction_history.transactions[0]).to eq({:date=>"07/03/2017", :credit=>100, :debit=>nil, :balance=>100})
     end
   end
   describe '#withdraw' do
@@ -36,7 +36,7 @@ describe Bank do
     it 'pushes the transaction instance into transaction_history' do
       subject.deposit(100)
       subject.withdraw(100)
-      expect(subject.transaction_history.transactions[1]).to be_an_instance_of(Transaction)
+      expect(subject.transaction_history.transactions[1]).to eq({:date=>"07/03/2017", :credit=>nil, :debit=>100, :balance=>0})
     end
   end
 end
